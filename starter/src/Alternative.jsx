@@ -14,35 +14,26 @@ const  App = () => {
     }
     return number;
   };
-console.log(1 % 4);
-console.log(2 % 4);
-console.log(3 % 4);
-console.log(4 % 4);
-console.log(10 % 4);
-
-
-
-
   const nextPerson = () => {
-    setIndex((currentIndex) => {
-      let newIndex = (currentIndex + 1) % people.length;
-
-      return newIndex; 
+    setIndex((index) => {
+      let newIndex = index + 1;
+      return checkNumber(newIndex);
     });
   };
   const prevPerson = () => {
-    setIndex((currentIndex) => {
-      let newIndex = (currentIndex - 1 + people.length) % people.length;
-      return newIndex;
+    setIndex((index) => {
+      let newIndex = index - 1;
+      return checkNumber(newIndex);
     });
   };
-  const randomPerson = () => {
-    let randomNumber = Math.floor(Math.random() * people.length);
-    if (randomNumber === index) {
-      randomNumber = index + 1;
-    }
-    setIndex(checkNumber(randomNumber));
-  };
+
+const randomPerson =() => {
+  let randomNumber = Math.floor(Math.random() * people.length);
+if (randomNumber === index){
+  randomNumber = index + 1
+}
+setIndex(checkNumber(randomNumber));
+};
 
   return(
      <main>
@@ -70,7 +61,7 @@ console.log(10 % 4);
     </article>
     </main>
   );
-  };
+}
   
 
 export default App;
